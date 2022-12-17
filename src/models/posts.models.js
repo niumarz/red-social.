@@ -18,9 +18,12 @@ const Posts = db.define('posts', {
     },
     content: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            len: [1, Infinity]
+        }
     }
-})
 
+})
 module.exports = Posts
 
