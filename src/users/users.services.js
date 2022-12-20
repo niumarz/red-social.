@@ -40,8 +40,8 @@ const getMyUser = (req, res) => {
 
 
 const postUser = (req, res) => {
-    const {firstName, lastName, email, password, gender, birthday} = req.body
-    userControllers.createUser({firstName, lastName, email, password,gender, birthday})
+    const {firstName, lastName, email,nickName, password, gender, birthday} = req.body
+    userControllers.createUser({firstName, lastName, email, nickName, password,gender, birthday})
         .then(async(data) => {
             await mailer.sendMail({
                 from: '<test.academlo@gmail.com>',
