@@ -8,6 +8,8 @@ const db = require('./utils/database')
 const initModels = require('./models/initModels')
 const userRouter = require('./users/users.router')
 const authRouter = require('./auth/auth.router')
+const postRouter = require('./posts/posts.router')
+const followRouter = require('./follows/follows.router')
 
 //? Initial Configs
 
@@ -40,8 +42,10 @@ app.get('/', (req, res) => {
     })
 })
 
+app.use('/api/v1', followRouter)
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/posts', postRouter)
 
 
 app.listen(config.api.port, () => {
