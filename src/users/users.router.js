@@ -1,9 +1,7 @@
 const router = require('express').Router()
 
 const userServices = require('./users.services')
-
 const followServices = require('../follows/follows.services')
-
 
 const passportJWT = require('../middlewares/auth.middleware')
 const roleMiddleware= require('../middlewares/role.middleware')
@@ -24,6 +22,5 @@ router.route('/:id')
 
 router.route('/:id/follow')
     .post(passportJWT.authenticate('jwt', {session: false}), followServices.postFollower)
-
 
 module.exports = router
